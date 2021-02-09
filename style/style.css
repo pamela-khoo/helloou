@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    box-sizing: border-box;
+}
+
+/* CAT EYES STYLING */
+
+.cat-head-container {
+    width: 291px;
+    /* height: 150px; */
+    position: relative;
+    background-color: blanchedalmond;
+    top: 200px;
+    left: 150px;
+}
+
+.cat-eye-container {
+    position: absolute;
+    top: 78px;
+    left: 57px;
+}
+
+.cat-eye-container2 {
+    position: absolute;
+    top: 78px;
+    left: 166px;
+}
+
+.cat-eye {
+    width: 70px;
+    height: 33.5px;
+    position: relative;
+    border: 1px solid transparent;
+    /* overflow: hidden; */
+    border-radius: 53% 47% 59% 42% / 56% 40% 58% 39%;
+}
+
+.cat-eye2 {
+    width: 70px;
+    height: 33.5px;
+    position: relative;
+    border: 1px solid transparent;
+    overflow: hidden;
+    border-radius: 42% 59% 47% 53% / 40% 56% 39% 58%;
+}
+
+.cat-pupil{
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 10px 90%;
+    transform: rotate(40deg);
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    top: -2px;
+}
+
+
