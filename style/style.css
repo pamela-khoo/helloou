@@ -26,6 +26,20 @@
     justify-content: center;
 }
 
+/* AUDIO  */
+
+.audio {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+#play, #pause {
+    background-color: transparent;
+    border: none;
+}
+
+
 /* TITLE + CAT HEAD CONTAINER */
 
 header {
