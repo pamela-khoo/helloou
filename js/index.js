@@ -40,9 +40,6 @@ page.addEventListener("mousemove", (e) => {
   adjustEye(mousePos, rightEye, rightPupil);
 });
 
-
-
-
 // CONFETTI ANIMATION 
 
 const catSnakeBtn = document.querySelector('.button-container');
