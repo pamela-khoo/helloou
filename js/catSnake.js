@@ -17,11 +17,13 @@ gameArr.forEach((row, y) => {
     });
 });
 
+//show winHTML if win
 const hasWin = () => {
     let winNode = document.querySelector('#win-container');
     winNode.classList.toggle('hide');
 }
 
+//show loseHTML if lose
 const hasLost = () => {
     let loseNode = document.querySelector('#lose-container');
     loseNode.classList.toggle('hide');
@@ -124,7 +126,7 @@ const moveCat = (newPos) => {
         catPart.x = newPos.x;
         newPos = tempPos;
     });
-}
+};
 
 //declare interval here to be able to clear it when user loses
 let interval;
@@ -155,7 +157,15 @@ const move = () => {
         if(isFish) {
             cat.push({y : tempCatPos.y, x : tempCatPos.x, class: 'fish-dead'});
             fishCount++;
-            if(fishCount === 1) {
+            if(fishCount === 5) {
+                clearInterval(interval);
+                interval = setInterval(move, 250)
+            }
+            if(fishCount === 10) {
+                clearInterval(interval);
+                interval = setInterval(move, 150)
+            }
+            if(fishCount === 25) {
                 clearInterval(interval);
                 hasWin();
             }
@@ -187,15 +197,24 @@ const changeDirection = (keypress) => {
     }
 }
 
+//hide intro - start interval - listen to keydown 
 const startGame = () => {
     document.querySelector('#intro-game').classList.add('hide');
-    interval = setInterval(move, 500);
+    interval = setInterval(move, 350);
     document.addEventListener('keydown', changeDirection);
 }
 
+//launch startGame when user click on startLink
 let startLink = document.querySelector('#start');
 startLink.addEventListener('click', startGame);
 
 
-
+//reload page if click on restart buttons
+let restartBtns = [...document.querySelectorAll('.restart')]
+const reload = () => {
+    document.location.reload();
+}
+restartBtns.forEach(restartBtn => {
+    restartBtn.addEventListener('click', reload)
+});
 

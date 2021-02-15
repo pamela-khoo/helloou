@@ -1,3 +1,6 @@
+// on load check url params to know if a mini game has been won 
+
+
 // 1 - Defining main container and its width
 const page = document.querySelector("body");
 

@@ -160,19 +160,6 @@
     color: white;
 }
 
-#restart {
-    margin-bottom: 32px;
-    background-color: white;
-    font-size: 28px;
-    color: #1F180F;
-}
-
-#back-home {
-    background-color: #909090;
-    font-size: 20px;
-    color: white;
-}
-
 .link-style {
     display: block;
     padding: 32px 40px 24px;
@@ -183,6 +170,28 @@
     line-height: 84%;
     letter-spacing: 0.02em;
     font-family: 'Duera Bold';
+}
+
+#lose-restart, #win-home, #start {
+    margin-bottom: 32px;
+    background-color: white;
+    font-size: 28px;
+    color: #1F180F;
+}
+
+#lose-home, #win-restart {
+    background-color: #909090;
+    font-size: 20px;
+    color: white;
+}
+
+#lose-restart, #win-restart {
+    border: none;
+    cursor: pointer; 
+}
+
+#lose-restart:focus, #win-restart:focus {
+    outline: none;
 }
 
 /* INTRO STYLE  */
