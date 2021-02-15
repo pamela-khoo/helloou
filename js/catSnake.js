@@ -17,6 +17,16 @@ gameArr.forEach((row, y) => {
     });
 });
 
+const hasWin = () => {
+    let winNode = document.querySelector('#win-container');
+    winNode.classList.toggle('hide');
+}
+
+const hasLost = () => {
+    let loseNode = document.querySelector('#lose-container');
+    loseNode.classList.toggle('hide');
+}
+
 //function to change y,x,classname of game-board depending on changes made on gameArr
 const renderXY = (y, x, className) => {
     document.getElementById(`${y}${x}`)
@@ -32,7 +42,8 @@ const renderGameArr = () => {
     }
 }
 
-//cat object
+//cat object in an
+//array because will push dead fishes later
 let cat = [{y : gameArr.length / 2, x : gameArr[0].length / 5, class : 'cat-head'}];
 
 //render cat array (with future dead fishes)
@@ -56,10 +67,11 @@ const randomFishPos = () => {
 } 
 
 let direction = 'right';
+let nextDirection = direction;
 
 randomFishPos();
 
-renderGameArr(direction);
+renderGameArr();
 
 //clear old cat position for each part of the cat
 const clearCat = (cat) => {
@@ -70,23 +82,23 @@ const clearCat = (cat) => {
 
 //what would be new cat head position according to direction
 //catPos contains copy of current cat head pos
-const newHeadPosition = (catPos, direction) => {
+const newHeadPosition = (tempCatPos, direction) => {
     switch(direction) {
         case 'right' :
-            catPos.x += 1;
-            catPos.direction = 'right';
+            tempCatPos.x += 1;
+            tempCatPos.direction = 'right';
             break;
         case 'left' :
-            catPos.x -= 1;
-            catPos.direction = 'left';
+            tempCatPos.x -= 1;
+            tempCatPos.direction = 'left';
             break;
         case 'up' :
-            catPos.y -= 1;
-            catPos.direction = 'up';
+            tempCatPos.y -= 1;
+            tempCatPos.direction = 'up';
             break;
         case 'down' :
-            catPos.y += 1;
-            catPos.direction = 'down';
+            tempCatPos.y += 1;
+            tempCatPos.direction = 'down';
             break;
     }
 }
@@ -128,6 +140,7 @@ let fishCount = 0;
     //if fish push it cat arr and create new fish, will render next move
 //if it can't move there clear interval
 const move = () => {
+    direction = nextDirection;
     let tempCatPos = {y : cat[0].y, x : cat[0].x};
     newHeadPosition(tempCatPos, direction);
     if(canMoveHead(tempCatPos)) {
@@ -142,14 +155,16 @@ const move = () => {
         if(isFish) {
             cat.push({y : tempCatPos.y, x : tempCatPos.x, class: 'fish-dead'});
             fishCount++;
-            if(fishCount === 30) {
+            if(fishCount === 1) {
                 clearInterval(interval);
+                hasWin();
             }
             document.querySelector('.right-elements p span').innerText = fishCount;
             randomFishPos();
         }
     } else {
         clearInterval(interval);
+        hasLost();
     }
 }
 
@@ -158,22 +173,29 @@ const changeDirection = (keypress) => {
     const {key} = keypress;
     switch(key) {
         case 'ArrowUp' :
-            if(direction !== 'down') direction = 'up';
+            if(direction !== 'down') nextDirection = 'up';
             break;
         case 'ArrowDown' : 
-            if(direction !== 'up') direction = 'down';
+            if(direction !== 'up') nextDirection = 'down';
             break;
         case 'ArrowRight' : 
-            if(direction !== 'left') direction = 'right';
+            if(direction !== 'left') nextDirection = 'right';
             break;
         case 'ArrowLeft' : 
-            if(direction !== 'right') direction = 'left';
+            if(direction !== 'right') nextDirection = 'left';
             break;
     }
 }
 
-document.addEventListener('keydown', changeDirection);
+const startGame = () => {
+    document.querySelector('#intro-game').classList.add('hide');
+    interval = setInterval(move, 500);
+    document.addEventListener('keydown', changeDirection);
+}
 
-interval = setInterval(move, 500);
+let startLink = document.querySelector('#start');
+startLink.addEventListener('click', startGame);
+
+
 
 
