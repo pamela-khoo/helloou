@@ -3,6 +3,11 @@
     src: url('./fonts/Duera-ExpaBold-PERSONAL.ttf')
 }
 
+@font-face {
+    font-family: "Duera Cond";
+    src: url('./fonts/Duera-CondBold-PERSONAL.ttf')
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -10,10 +15,6 @@
 
 .body {
     box-sizing: border-box;
-}
-
-.hide {
-    display: none;
 }
 
 /* CONTAINER BACKGROUND */
@@ -126,6 +127,8 @@ main {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
     transition: box-shadow 0.3s ease;
+    text-decoration: none;
+    color: black;
 }
 
 .button-container:not(:first-child) {
@@ -173,4 +176,27 @@ main {
     font-size: 3.5em;
     letter-spacing: 0.02em;
     line-height: 84%;
+}
+
+/* WON STYLING  */
+
+.bossed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bossed p {
+    margin-top: 10px;
+    margin-bottom: 37px;
+    font-size: 20px;
+    line-height: 84%;
+    text-transform: uppercase;
+    font-family: 'Duera Cond';
+    letter-spacing: 0.02em;
+    color: rgb(77, 77, 77);
+}
+
+.hide {
+    display: none;
 }

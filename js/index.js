@@ -1,6 +1,3 @@
-// on load check url params to know if a mini game has been won 
-
-
 // 1 - Defining main container and its width
 const page = document.querySelector("body");
 
@@ -76,6 +73,42 @@ getEmBtn.addEventListener('mouseenter', () => {
   getEmSvg.classList.remove('hide');
   animItemGetEm.goToAndPlay(0,true);
 })
+
+//check url params to know if a mini game has been won 
+const getUrlParams = () => {
+  let params = {};
+
+  if (window.location.search)
+    for(let p of new URLSearchParams(window.location.search)) {
+      params[p[0]] = p[1];
+      console.log(p[0]);
+    }
+  return params;
+}
+
+let params = getUrlParams();
+
+const setUrlParams = (url, params) => {
+  if (params) {
+      url += `?`
+      let oneDone = false;
+
+      Object.keys(params).forEach(element => {
+      url += (oneDone ? '&' : '') + `${element}=${params[element]}`;
+      oneDone = true;
+      });
+  }
+  return url;
+}
+
+let newURL = setUrlParams(`${catSnakeBtn.href}`, params);
+catSnakeBtn.href = newURL;
+
+let urlParams = new URLSearchParams(window.location.search);
+if(urlParams.has('game1')) {
+  document.getElementById('bossed').classList.remove('hide');
+}
+
 
 
 

@@ -1,3 +1,57 @@
+//dealing with query params
+const getUrlParams = () => {
+    let params = {};
+  
+    if (window.location.search)
+      for(let p of new URLSearchParams(window.location.search)) {
+        params[p[0]] = p[1];
+      }
+    return params;
+}
+  
+let params = getUrlParams();
+  
+const setUrlParams = (url, params) => {
+    if (params) {
+        url += `?`
+        let oneDone = false;
+
+        Object.keys(params).forEach(element => {
+        url += (oneDone ? '&' : '') + `${element}=${params[element]}`;
+        oneDone = true;
+        });
+    }
+    return url;
+}
+
+//show winHTML if win
+const hasWin = () => {
+    let winNode = document.querySelector('#win-container');
+    winNode.classList.toggle('hide');
+
+    // dealing with query params
+    let winHomeBtn = document.querySelector('#win-home');
+    params.game1 = 'catSnake';
+    let newURL = setUrlParams(`${winHomeBtn.href}`, params);
+    winHomeBtn.href = newURL;
+}
+
+
+//show loseHTML if lose
+const hasLost = () => {
+    let loseNode = document.querySelector('#lose-container');
+    loseNode.classList.toggle('hide');
+
+    //dealing with query params
+    let loseHomeBtn = document.querySelector('#lose-home');
+    for(let param in params) {
+        if(param === 'game1');
+        delete params.game1;
+    }
+    let newURL = setUrlParams(`${loseHomeBtn.href}`, params);
+    loseHomeBtn.href = newURL;
+}
+
 //create an array reflecting boardgame-tiles
 let gridSize = 10;
 let gameArr = new Array(gridSize);
@@ -16,18 +70,6 @@ gameArr.forEach((row, y) => {
         gameBoard.appendChild(div);
     });
 });
-
-//show winHTML if win
-const hasWin = () => {
-    let winNode = document.querySelector('#win-container');
-    winNode.classList.toggle('hide');
-}
-
-//show loseHTML if lose
-const hasLost = () => {
-    let loseNode = document.querySelector('#lose-container');
-    loseNode.classList.toggle('hide');
-}
 
 //function to change y,x,classname of game-board depending on changes made on gameArr
 const renderXY = (y, x, className) => {
@@ -55,8 +97,6 @@ const putCat = (cat) => {
     })
 }
 
-putCat(cat);
-
 //random fish placement function
 const randomFishPos = () => {
     let randomY = Math.floor(Math.random() * gridSize);
@@ -70,10 +110,6 @@ const randomFishPos = () => {
 
 let direction = 'right';
 let nextDirection = direction;
-
-randomFishPos();
-
-renderGameArr();
 
 //clear old cat position for each part of the cat
 const clearCat = (cat) => {
@@ -157,15 +193,15 @@ const move = () => {
         if(isFish) {
             cat.push({y : tempCatPos.y, x : tempCatPos.x, class: 'fish-dead'});
             fishCount++;
-            if(fishCount === 5) {
-                clearInterval(interval);
-                interval = setInterval(move, 250)
-            }
-            if(fishCount === 10) {
-                clearInterval(interval);
-                interval = setInterval(move, 150)
-            }
-            if(fishCount === 25) {
+            // if(fishCount === 5) {
+            //     clearInterval(interval);
+            //     interval = setInterval(move, 250)
+            // }
+            // if(fishCount === 10) {
+            //     clearInterval(interval);
+            //     interval = setInterval(move, 150)
+            // }
+            if(fishCount === 1) {
                 clearInterval(interval);
                 hasWin();
             }
@@ -200,6 +236,9 @@ const changeDirection = (keypress) => {
 //hide intro - start interval - listen to keydown 
 const startGame = () => {
     document.querySelector('#intro-game').classList.add('hide');
+    putCat(cat);
+    randomFishPos();
+    renderGameArr();
     interval = setInterval(move, 350);
     document.addEventListener('keydown', changeDirection);
 }
