@@ -81,7 +81,6 @@ const getUrlParams = () => {
   if (window.location.search)
     for(let p of new URLSearchParams(window.location.search)) {
       params[p[0]] = p[1];
-      console.log(p[0]);
     }
   return params;
 }

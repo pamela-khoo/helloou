@@ -193,15 +193,15 @@ const move = () => {
         if(isFish) {
             cat.push({y : tempCatPos.y, x : tempCatPos.x, class: 'fish-dead'});
             fishCount++;
-            // if(fishCount === 5) {
-            //     clearInterval(interval);
-            //     interval = setInterval(move, 250)
-            // }
-            // if(fishCount === 10) {
-            //     clearInterval(interval);
-            //     interval = setInterval(move, 150)
-            // }
-            if(fishCount === 1) {
+            if(fishCount === 5) {
+                clearInterval(interval);
+                interval = setInterval(move, 250)
+            }
+            if(fishCount === 10) {
+                clearInterval(interval);
+                interval = setInterval(move, 150)
+            }
+            if(fishCount === 25) {
                 clearInterval(interval);
                 hasWin();
             }
