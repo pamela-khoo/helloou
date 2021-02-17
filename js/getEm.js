@@ -75,7 +75,6 @@ const randomElem = (className) => {
 
 //clear intervals
 const stopGame = () => {
-    clearInterval(intervalCreate);
     clearInterval(intervalMove);
 } 
 
@@ -97,11 +96,13 @@ const changeFishCounter = () => {
     document.querySelector('.right-elements p span').innerText = fishCount;
 
     if(fishCount === 5) {
+        console.log('5');
         stopGame();
         intervalMove = setInterval(moveElems, 400);
     }
 
     if(fishCount === 10) {
+        console.log('10');
         stopGame();
         intervalMove = setInterval(moveElems, 250);
     }
