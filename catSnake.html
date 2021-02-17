@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="./style/img/favicon.ico"/>
     <link rel="stylesheet" href="./style/catSnake.css">
     <script type="module" src="./js/catSnake.js"></script>
 </head>
@@ -47,6 +48,11 @@
             <aside class="right-elements">
                 <p><span>0</span>/25</p>
                 <p>fish found</p>
+                <div class="audio">
+                    <audio autoplay loop id="background-music" src="./style/music/mitchrineko.mp3"></audio>
+                    <button id="play" onclick="document.getElementById('background-music').play()"><img src="./style/img/Play_icon.svg" alt=""></button>
+                    <button id="pause" onclick="document.getElementById('background-music').pause()"><img src="./style/img/Pause_icon.svg" alt=""></button>
+                </div>
             </aside>
         </div>
     </div>

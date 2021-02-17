@@ -1,7 +1,11 @@
-import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick} from '../js/gamesFunctions.js';
+import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick, sparkleSound} from '../js/gamesFunctions.js';
 
 //dealing with queryParams
 let params = getUrlParams();
+
+//background sound
+const backgroundMusic = document.querySelector('#background-music');
+backgroundMusic.volume = 0.5;
 
 //show winHTML if win
 const hasWin = () => {
@@ -141,6 +145,7 @@ const move = () => {
         if(isFish) {
             cat.push({y : tempCatPos.y, x : tempCatPos.x, class: 'fish-dead'});
             fishCount++;
+            sparkleSound.play();
             if(fishCount === 5) {
                 clearInterval(interval);
                 interval = setInterval(move, 250)
@@ -149,7 +154,7 @@ const move = () => {
                 clearInterval(interval);
                 interval = setInterval(move, 150)
             }
-            if(fishCount === 1) {
+            if(fishCount === 25) {
                 clearInterval(interval);
                 hasWin();
             }
@@ -183,6 +188,8 @@ const changeDirection = (keypress) => {
 
 //hide intro - start interval - listen to keydown 
 const startGame = () => {
+    backgroundMusic.volume = 0.3;
+    sparkleSound.play();
     document.querySelector('#intro-game').classList.add('hide');
     putCat(cat);
     randomFishPos();

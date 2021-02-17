@@ -1,4 +1,11 @@
-import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick} from '../js/gamesFunctions.js';
+import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick, sparkleSound} from '../js/gamesFunctions.js';
+
+//sounds effects
+const dropSound = new Audio('./style/music/drop-sound.mp3');
+dropSound.volume = 0.4;
+//background sound
+const backgroundMusic = document.querySelector('#background-music');
+backgroundMusic.volume = 0.5;
 
 //dealing with queryParams
 let params = getUrlParams();
@@ -21,6 +28,7 @@ const hasLost = () => {
     loseNode.classList.toggle('hide');
     loseNode.style.animation = 'appear 0.3s';
 
+    // dealing with query params
     let loseHomeBtn = document.querySelector('#lose-home');
     for(let param in params) {
         if(param === 'game2');
@@ -65,14 +73,6 @@ const randomElem = (className) => {
     dropItems.push({y : 0, x : randomX, class : className});
 };
 
-let intervalCreate;
-
-//create fish or raindrop - more raindrop than fish
-const createElems = () => {
-    Math.round(Math.random() * 20) > 7 ? randomElem('raindrop') : randomElem('fish');
-    renderGameArr();
-}
-
 //clear intervals
 const stopGame = () => {
     clearInterval(intervalCreate);
@@ -82,9 +82,11 @@ const stopGame = () => {
 //depending on class of the element update counter
 const changeCounters = (className) => {
     if(className === 'fish'){
+        sparkleSound.play();
         changeFishCounter();
     };
     if(className === 'raindrop'){
+        dropSound.play();
         changeDropCounter();
     };
 }
@@ -96,13 +98,11 @@ const changeFishCounter = () => {
 
     if(fishCount === 5) {
         stopGame();
-        intervalCreate = setInterval(createElems, 800);
         intervalMove = setInterval(moveElems, 400);
     }
 
     if(fishCount === 10) {
         stopGame();
-        intervalCreate = setInterval(createElems, 500);
         intervalMove = setInterval(moveElems, 250);
     }
 
@@ -124,9 +124,17 @@ const changeDropCounter = () => {
     }
 }
 
+//create fish or raindrop - more raindrop than fish
+const createElems = () => {
+    Math.round(Math.random() * 20) > 7 ? randomElem('raindrop') : randomElem('fish');
+    renderGameArr();
+}
+
 let fishCount = 0;
 let raindropCount = 0;
 let intervalMove;
+
+let createItemNow = 0;
 
 //for each elem items
 //test new pos (y+1)
@@ -158,9 +166,17 @@ const moveElems = () => {
             }
 
         } else {
+            //dropItems.splice(index--, 1);
             dropItems.splice(index, 1);
             index--;
         }
+    }
+
+    if(createItemNow > 0) {
+        createElems();
+        createItemNow = 0;
+    } else {
+        createItemNow++;
     }
 
     renderGameArr();
@@ -168,9 +184,11 @@ const moveElems = () => {
 
 //cat event listener keypress moves cat x 
 //check if cat encounter an elem(fish-raindrop) when moving to deal with it : 
-//add to proper counter
-//erase elem from gameArr
-//era elem from dropItems arr
+    //add to proper counter
+    //erase elem from gameArr
+    //erase elem from dropItems arr
+//put new cat pos in gameArr
+//render HTML
 const changeDirection = (keypress) => {
     let tempCatPos = {x : cat.x};
     const {key} = keypress;
@@ -201,9 +219,9 @@ const changeDirection = (keypress) => {
 
 //hide intro - start interval - listen to keydown 
 const startGame = () => {
+    backgroundMusic.volume = 0.3;
+    sparkleSound.play();
     document.querySelector('#intro-game').classList.add('hide');
-    renderGameArr();
-    intervalCreate = setInterval(createElems, 1000);
     intervalMove = setInterval(moveElems, 500);
     document.addEventListener('keydown', changeDirection);
 }

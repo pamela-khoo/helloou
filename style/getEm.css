@@ -107,7 +107,11 @@
 /* RIGHT SIDE  */
 .right-elements {
     min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
+
 .right-elements p:nth-child(1), .right-elements p:nth-child(3){
     text-align: end;
     font-family: 'Duera Bold';
@@ -124,6 +128,20 @@
     line-height: 100%;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.7);
+}
+
+/* AUDIO STYLE  */
+
+#play, #pause {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#play:hover, #pause:hover {
+    opacity: 1;
 }
 
 /* WIN-LOST STYLE  */

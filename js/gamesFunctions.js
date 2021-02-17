@@ -68,4 +68,7 @@ const reloadOnRestartClick = () => {
     });
 }
 
+//sparkle sound
+export const sparkleSound = new Audio('./style/music/sparkle-sound.mp3');
+
 export {setUrlParams, getUrlParams, renderGameArr, reloadOnRestartClick}

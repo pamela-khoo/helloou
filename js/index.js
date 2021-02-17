@@ -45,6 +45,8 @@ page.addEventListener("mousemove", (e) => {
 const catSnakeBtn = document.querySelector('.button-container');
 const catSnakeSvg = document.querySelector('.button-container #svg');
 
+const sparkleSound = new Audio('./style/music/sparkle-sound.mp3');
+
 const animItemSnake = bodymovin.loadAnimation({
   wrapper: catSnakeSvg,
   animType: 'svg',
@@ -54,6 +56,7 @@ const animItemSnake = bodymovin.loadAnimation({
 });
 
 catSnakeBtn.addEventListener('mouseenter', () => {
+  sparkleSound.play();
   catSnakeSvg.classList.remove('hide');
   animItemSnake.goToAndPlay(0,true);
 })
@@ -70,6 +73,7 @@ const animItemGetEm = bodymovin.loadAnimation({
 });
 
 getEmBtn.addEventListener('mouseenter', () => {
+  sparkleSound.play();
   getEmSvg.classList.remove('hide');
   animItemGetEm.goToAndPlay(0,true);
 })
@@ -117,6 +121,9 @@ if(urlParams.has('game2')) {
   getEmBtn.classList.remove('btn-arrow');
 }
 
+//dealing with sound
+const backgroundMusic = document.querySelector('#background-music');
+backgroundMusic.volume = 0.5;
 
 
 
