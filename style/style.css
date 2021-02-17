@@ -39,8 +39,14 @@
 #play, #pause {
     background-color: transparent;
     border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.5;
 }
 
+#play:hover, #pause:hover {
+    opacity: 1;
+}
 
 /* TITLE + CAT HEAD CONTAINER */
 
@@ -142,7 +148,7 @@ main {
 
 @keyframes shake {
     10%, 90% {
-        transform: translateY(-1px);
+    transform: translateY(-1px);
     }
       
     20%, 80% {
@@ -158,7 +164,7 @@ main {
     }
 }
 
-.button-container:hover::after {
+.btn-arrow:hover::after {
     content: '';
     position: absolute;
     top: 184px;

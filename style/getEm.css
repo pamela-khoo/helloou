@@ -43,8 +43,8 @@
     position: relative;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.26);
     border-radius: 6px;
     background-image: url(./img/Game02background.svg);
@@ -237,6 +237,20 @@
     outline: 0;
 }
 
+#start {
+    margin-bottom: 0;
+}
+
+/* FOR DIFFERENT ITEMS, USED IN JS */
 .hide {
     display: none;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

@@ -100,13 +100,23 @@ const setUrlParams = (url, params) => {
   return url;
 }
 
-let newURL = setUrlParams(`${catSnakeBtn.href}`, params);
-catSnakeBtn.href = newURL;
+let newSnakeURL = setUrlParams(`${catSnakeBtn.href}`, params);
+catSnakeBtn.href = newSnakeURL;
 
 let urlParams = new URLSearchParams(window.location.search);
 if(urlParams.has('game1')) {
   document.getElementById('bossed').classList.remove('hide');
+  catSnakeBtn.classList.remove('btn-arrow');
 }
+
+let newGetEmURL = setUrlParams(`${getEmBtn.href}`, params);
+getEmBtn.href = newGetEmURL;
+
+if(urlParams.has('game2')) {
+  document.getElementById('dominated').classList.remove('hide');
+  getEmBtn.classList.remove('btn-arrow');
+}
+
 
 
 

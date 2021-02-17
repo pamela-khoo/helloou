@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A day with Kitty</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./style/style.css">
     <script type="module" src="./js/index.js"></script>
 </head>
@@ -13,9 +12,9 @@
     
     <div class="container-all">
         <div class="audio">
-            <audio autoplay id="player" src="./style/music/ColdYouthNearby.mp3"></audio>
-            <i id="play" onclick="document.getElementById('player').play()" class="far fa-play-circle"></i>
-            <i id="pause" onclick="document.getElementById('player').pause()" class="far fa-pause-circle"></i>
+            <audio id="player" src="./style/music/ColdYouthNearby.mp3"></audio>
+            <button id="play" onclick="document.getElementById('player').play()"><img src="./style/img/Play_icon.svg" alt=""></button>
+            <button id="pause" onclick="document.getElementById('player').pause()"><img src="./style/img/Pause_icon.svg" alt=""></button>
         </div>
         <header>
             <div class="cat-head-container">
@@ -33,7 +32,7 @@
         </header>
 
         <main class="buttons-container">
-            <a id="cat-snake-btn" class="button-container" href="./catSnake.html">
+            <a id="cat-snake-btn" class="button-container btn-arrow" href="./catSnake.html">
                 <div id="bossed" class="bossed hide">
                     <img src="./style/img/bossdit.svg" alt="crown because you won catSnake game">
                     <p>boss'd</p>
@@ -42,7 +41,11 @@
                 <span>cat</span>
                 <span>snake</span>
             </a>
-            <a id="get-em-btn" class="button-container" href="./getEm.html">
+            <a id="get-em-btn" class="button-container btn-arrow" href="./getEm.html">
+                <div id="dominated" class="bossed hide">
+                    <img src="./style/img/bossdit.svg" alt="crown because you won catSnake game">
+                    <p>dominated</p>
+                </div>
                 <div class="hide svg" id="svg"></div>
                 <span>get'em</span>
                 <span>treats</span>

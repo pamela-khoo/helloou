@@ -244,6 +244,20 @@
     outline: 0;
 }
 
+#start {
+    margin-bottom: 0;
+}
+
+/* FOR DIFFERENT ITEMS, USED IN JS */
 .hide {
     display: none;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

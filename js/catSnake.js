@@ -1,33 +1,13 @@
-//dealing with query params
-const getUrlParams = () => {
-    let params = {};
-  
-    if (window.location.search)
-      for(let p of new URLSearchParams(window.location.search)) {
-        params[p[0]] = p[1];
-      }
-    return params;
-}
-  
-let params = getUrlParams();
-  
-const setUrlParams = (url, params) => {
-    if (params) {
-        url += `?`
-        let oneDone = false;
+import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick} from '../js/gamesFunctions.js';
 
-        Object.keys(params).forEach(element => {
-        url += (oneDone ? '&' : '') + `${element}=${params[element]}`;
-        oneDone = true;
-        });
-    }
-    return url;
-}
+//dealing with queryParams
+let params = getUrlParams();
 
 //show winHTML if win
 const hasWin = () => {
     let winNode = document.querySelector('#win-container');
     winNode.classList.toggle('hide');
+    winNode.style.animation = 'appear 0.3s';
 
     // dealing with query params
     let winHomeBtn = document.querySelector('#win-home');
@@ -36,11 +16,11 @@ const hasWin = () => {
     winHomeBtn.href = newURL;
 }
 
-
 //show loseHTML if lose
 const hasLost = () => {
     let loseNode = document.querySelector('#lose-container');
     loseNode.classList.toggle('hide');
+    loseNode.style.animation = 'appear 0.3s';
 
     //dealing with query params
     let loseHomeBtn = document.querySelector('#lose-home');
@@ -52,39 +32,7 @@ const hasLost = () => {
     loseHomeBtn.href = newURL;
 }
 
-//create an array reflecting boardgame-tiles
-let gridSize = 10;
-let gameArr = new Array(gridSize);
-for(let i = 0; i < gameArr.length; i++) {
-    gameArr[i] = new Array(gridSize);
-    gameArr[i].fill('empty');
-}
-
-//create HTML divs reflecting gameArr 
-let gameBoard = document.querySelector('#game-board');
-gameArr.forEach((row, y) => {
-    row.forEach((column, x) => {
-        let div = document.createElement('div');
-        div.classList.add('empty');
-        div.id = `${y}${x}`;
-        gameBoard.appendChild(div);
-    });
-});
-
-//function to change y,x,classname of game-board depending on changes made on gameArr
-const renderXY = (y, x, className) => {
-    document.getElementById(`${y}${x}`)
-    .setAttribute('class', `${className}`);
-}
-
-//function to iterate through gameArr and apply change to HTML elements
-const renderGameArr = () => {
-    for(let y = 0; y < gridSize; y++) {
-        for(let x = 0; x < gridSize; x++) {
-            renderXY(y, x, gameArr[y][x]);
-        }
-    }
-}
+//--------------start building game-------------//
 
 //cat object in an
 //array because will push dead fishes later
@@ -201,7 +149,7 @@ const move = () => {
                 clearInterval(interval);
                 interval = setInterval(move, 150)
             }
-            if(fishCount === 25) {
+            if(fishCount === 1) {
                 clearInterval(interval);
                 hasWin();
             }
@@ -249,11 +197,5 @@ startLink.addEventListener('click', startGame);
 
 
 //reload page if click on restart buttons
-let restartBtns = [...document.querySelectorAll('.restart')]
-const reload = () => {
-    document.location.reload();
-}
-restartBtns.forEach(restartBtn => {
-    restartBtn.addEventListener('click', reload)
-});
+reloadOnRestartClick();
 
