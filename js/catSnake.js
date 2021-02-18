@@ -1,11 +1,17 @@
 import {getUrlParams, setUrlParams, reloadOnRestartClick, sparkleSound, winSound, loseSound, renderXY, gridSize, gameArr} from '../js/gamesFunctions.js';
 
-//dealing with queryParams
-let params = getUrlParams();
-
 //background sound
 const backgroundMusic = document.querySelector('#background-music');
 backgroundMusic.volume = 0.5;
+
+//dealing with queryParams
+let params = getUrlParams();
+
+//dealing with return buttin queryParams
+const returnHomeBtn = document.querySelector('.left-elements a');
+delete params.game1;
+const setUrl = setUrlParams(`${returnHomeBtn.href}`, params);
+returnHomeBtn.href = setUrl;
 
 //show winHTML if win
 const hasWin = () => {
@@ -15,7 +21,7 @@ const hasWin = () => {
     winNode.classList.toggle('hide');
     winNode.style.animation = 'appear 0.3s';
 
-    // dealing with query params
+    // dealing with query winning params
     let winHomeBtn = document.querySelector('#win-home');
     params.game1 = 'catSnake';
     let newURL = setUrlParams(`${winHomeBtn.href}`, params);
@@ -30,7 +36,7 @@ const hasLost = () => {
     loseNode.classList.toggle('hide');
     loseNode.style.animation = 'appear 0.3s';
 
-    //dealing with query params
+    //dealing with query losing params
     let loseHomeBtn = document.querySelector('#lose-home');
     for(let param in params) {
         if(param === 'game1');
@@ -166,7 +172,6 @@ const move = () => {
 
         putCat(cat);
         renderGameArr();
-        console.log(cat[0].rotate);
         if(isFish) {
             cat.push({y : tempCatPos.y, x : tempCatPos.x, class: 'fish-dead'});
             fishCount++;
@@ -216,7 +221,7 @@ const changeDirection = (keypress) => {
 
 //hide intro - start interval - listen to keydown 
 const startGame = () => {
-    backgroundMusic.volume = 0.3;
+    backgroundMusic.volume = 0.2;
     sparkleSound.play();
     document.querySelector('#intro-game').classList.add('hide');
     putCat(cat);

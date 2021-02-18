@@ -5,10 +5,16 @@ const dropSound = new Audio('./style/music/drop-sound.mp3');
 dropSound.volume = 0.4;
 //background sound
 const backgroundMusic = document.querySelector('#background-music');
-backgroundMusic.volume = 0.5;
+backgroundMusic.volume = 0.3;
 
 //dealing with queryParams
 let params = getUrlParams();
+
+//dealing with return buttin queryParams
+const returnHomeBtn = document.querySelector('.left-elements a');
+delete params.game2;
+const setUrl = setUrlParams(`${returnHomeBtn.href}`, params);
+returnHomeBtn.href = setUrl;
 
 const hasWin = () => {
     winSound.volume = 0.2;
@@ -17,7 +23,7 @@ const hasWin = () => {
     winNode.classList.toggle('hide');
     winNode.style.animation = 'appear 0.3s';
 
-    // dealing with query params
+    // dealing with winning query params
     let winHomeBtn = document.querySelector('#win-home');
     params.game2 = 'getEm';
     let newURL = setUrlParams(`${winHomeBtn.href}`, params);
@@ -32,7 +38,7 @@ const hasLost = () => {
     loseNode.classList.toggle('hide');
     loseNode.style.animation = 'appear 0.3s';
 
-    // dealing with query params
+    // dealing with losing query params
     let loseHomeBtn = document.querySelector('#lose-home');
     for(let param in params) {
         if(param === 'game2');
@@ -233,7 +239,7 @@ const changeDirection = (keypress) => {
 
 //hide intro - start interval - listen to keydown 
 const startGame = () => {
-    backgroundMusic.volume = 0.3;
+    backgroundMusic.volume = 0.1;
     sparkleSound.play();
     document.querySelector('#intro-game').classList.add('hide');
     intervalMove = setInterval(moveElems, 500);
