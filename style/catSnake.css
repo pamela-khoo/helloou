@@ -78,6 +78,7 @@
 /* LEFT SIDE  */
 
 .left-elements {
+    min-width: 210px;
     position: relative;
     top: 10%;
     align-self: flex-start;
@@ -114,13 +115,13 @@
 
 /* RIGHT SIDE  */
 .right-elements {
-    min-width: 220px;
+    min-width: 210px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.right-elements p:nth-child(1){
+.right-elements p:nth-child(2){
     text-align: end;
     font-family: 'Duera Bold';
     font-size: 56px;
@@ -128,7 +129,7 @@
     margin-bottom: 8px;
 }
 
-.right-elements p:nth-child(2){
+.right-elements p:nth-child(3){
     text-align: end;
     font-family: 'Duera';
     font-size: 26px;
@@ -138,6 +139,10 @@
 }
 
 /* AUDIO STYLE  */
+
+.audio {
+    margin-bottom: 40px;
+}
 
 #play, #pause {
     background-color: transparent;

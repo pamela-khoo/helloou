@@ -1,4 +1,4 @@
-import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick, sparkleSound} from '../js/gamesFunctions.js';
+import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick, sparkleSound, winSound, loseSound} from '../js/gamesFunctions.js';
 
 //dealing with queryParams
 let params = getUrlParams();
@@ -9,6 +9,8 @@ backgroundMusic.volume = 0.5;
 
 //show winHTML if win
 const hasWin = () => {
+    winSound.volume = 0.2;
+    winSound.play();
     let winNode = document.querySelector('#win-container');
     winNode.classList.toggle('hide');
     winNode.style.animation = 'appear 0.3s';
@@ -22,6 +24,8 @@ const hasWin = () => {
 
 //show loseHTML if lose
 const hasLost = () => {
+    loseSound.volume = 0.2;
+    loseSound.play();
     let loseNode = document.querySelector('#lose-container');
     loseNode.classList.toggle('hide');
     loseNode.style.animation = 'appear 0.3s';
@@ -154,7 +158,7 @@ const move = () => {
                 clearInterval(interval);
                 interval = setInterval(move, 150)
             }
-            if(fishCount === 25) {
+            if(fishCount === 20) {
                 clearInterval(interval);
                 hasWin();
             }

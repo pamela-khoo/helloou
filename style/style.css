@@ -32,8 +32,8 @@
 
 .audio {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 40px;
+    right: 60px;
 }
 
 #play, #pause {

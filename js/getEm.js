@@ -1,4 +1,4 @@
-import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick, sparkleSound} from '../js/gamesFunctions.js';
+import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick, sparkleSound, winSound, loseSound} from '../js/gamesFunctions.js';
 
 //sounds effects
 const dropSound = new Audio('./style/music/drop-sound.mp3');
@@ -11,6 +11,8 @@ backgroundMusic.volume = 0.5;
 let params = getUrlParams();
 
 const hasWin = () => {
+    winSound.volume = 0.2;
+    winSound.play();
     let winNode = document.querySelector('#win-container');
     winNode.classList.toggle('hide');
     winNode.style.animation = 'appear 0.3s';
@@ -24,6 +26,8 @@ const hasWin = () => {
 
 //show loseHTML if lose
 const hasLost = () => {
+    loseSound.volume = 0.2;
+    loseSound.play();
     let loseNode = document.querySelector('#lose-container');
     loseNode.classList.toggle('hide');
     loseNode.style.animation = 'appear 0.3s';
