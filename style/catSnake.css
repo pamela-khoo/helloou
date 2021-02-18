@@ -316,8 +316,8 @@
     }
 
     #game-board {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
     }
 
     /* INTRO  */
@@ -352,7 +352,7 @@
     }
 
     #pad-touch-container img {
-        width: 60px;
+        width: 40px;
     }
 
     #left {
@@ -414,5 +414,9 @@
     #game-board {
         width: 310px;
         height: 310px;
+    }
+
+    #pad-touch-container img {
+        width: 60px;
     }
 }

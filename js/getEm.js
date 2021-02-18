@@ -156,15 +156,20 @@ let intervalMove;
 
 let createItemNow = 0;
 
+
 //for each elem items
-//test new pos (y+1)
-//clear elem from gameArr
-//if less than gridSize
-    //check if cat at this new pos
-    //if cat change counters, erase item from dropItems, index-- to not miss an element
-    //else let item go at new pos
-//if it can't move there
-    //erase item from dropItems, index-- again to not miss an element
+    //test new pos (y+1)
+    //clear elem from gameArr
+    //if less than gridSize
+        //check if cat at this new pos
+        //if cat change counters, erase item from dropItems, index-- to not miss an element
+        //else let item go at new pos
+    //if it can't move there
+        //erase item from dropItems, index-- again to not miss an element
+
+//create a element one time in two 
+    //first time createItemNow < 0 so add 1
+    //next time createItemNow > 0 so createElem and reset createItemNow to 0;
 //anyway renderGame to html grid
 const moveElems = () => {
     for(let index = 0; index < dropItems.length; index++) {
@@ -186,7 +191,6 @@ const moveElems = () => {
             }
 
         } else {
-            //dropItems.splice(index--, 1);
             dropItems.splice(index, 1);
             index--;
         }
@@ -209,9 +213,8 @@ const moveElems = () => {
     //erase elem from dropItems arr
 //put new cat pos in gameArr
 //render HTML
-const changeDirection = (keypress) => {
+const changeDirection = (key) => {
     let tempCatPos = {x : cat.x};
-    const {key} = keypress;
     switch(key) {
         case 'ArrowRight' : 
             tempCatPos.x += 1;
@@ -237,13 +240,24 @@ const changeDirection = (keypress) => {
     }
 };
 
+//for keydown event only
+const onKeyPress = (keypress) => {
+    changeDirection(keypress.key);
+}
+
 //hide intro - start interval - listen to keydown 
 const startGame = () => {
     backgroundMusic.volume = 0.1;
     sparkleSound.play();
     document.querySelector('#intro-game').classList.add('hide');
     intervalMove = setInterval(moveElems, 500);
-    document.addEventListener('keydown', changeDirection);
+    document.addEventListener('keydown', onKeyPress);
+
+    //mobile version
+    let leftBtn = document.getElementById('left');
+    let rightBtn = document.getElementById('right');
+    leftBtn.addEventListener('click', () => changeDirection('ArrowLeft'));
+    rightBtn.addEventListener('click', () => changeDirection('ArrowRight'));
 }
 
 //launch startGame when user click on startLink

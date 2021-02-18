@@ -200,9 +200,8 @@ const move = () => {
     }
 }
 
-//change direction according to key extracted from keydown event
-const changeDirection = (keypress) => {
-    const {key} = keypress;
+//change nextDirection according to key extracted from keydown event - touch pad clicked
+const changeDirection = (key) => {
     switch(key) {
         case 'ArrowUp' :
             if(direction !== 'down') nextDirection = 'up';
@@ -219,6 +218,11 @@ const changeDirection = (keypress) => {
     }
 }
 
+//only on keydown event
+const onKeyPress = (keypress) => {
+    changeDirection(keypress.key);
+}
+
 //hide intro - start interval - listen to keydown 
 const startGame = () => {
     backgroundMusic.volume = 0.2;
@@ -228,7 +232,19 @@ const startGame = () => {
     randomFishPos();
     renderGameArr();
     interval = setInterval(move, 350);
-    document.addEventListener('keydown', changeDirection);
+    document.addEventListener('keydown', onKeyPress);
+
+
+    //mobile version
+    let leftBtn = document.getElementById('left');
+    let rightBtn = document.getElementById('right');
+    let upBtn = document.getElementById('up');
+    let downBtn = document.getElementById('down');
+
+    leftBtn.addEventListener('click', () => changeDirection('ArrowLeft'));
+    rightBtn.addEventListener('click', () => changeDirection('ArrowRight'));
+    upBtn.addEventListener('click', () => changeDirection('ArrowUp'));
+    downBtn.addEventListener('click', () => changeDirection('ArrowDown'));
 }
 
 //launch startGame when user click on startLink
