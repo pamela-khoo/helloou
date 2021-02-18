@@ -1,4 +1,4 @@
-import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick, sparkleSound, winSound, loseSound} from '../js/gamesFunctions.js';
+import {getUrlParams, setUrlParams, gridSize, gameArr, reloadOnRestartClick, sparkleSound, winSound, loseSound, renderXY} from '../js/gamesFunctions.js';
 
 //sounds effects
 const dropSound = new Audio('./style/music/drop-sound.mp3');
@@ -26,7 +26,7 @@ const hasWin = () => {
 
 //show loseHTML if lose
 const hasLost = () => {
-    loseSound.volume = 0.2;
+    loseSound.volume = 1;
     loseSound.play();
     let loseNode = document.querySelector('#lose-container');
     loseNode.classList.toggle('hide');
@@ -44,6 +44,15 @@ const hasLost = () => {
 
 
 //--------------start building game-------------//
+
+//function to iterate through gameArr and apply change to HTML elements
+const renderGameArr = () => {
+    for(let y = 0; y < gridSize; y++) {
+        for(let x = 0; x < gridSize; x++) {
+            renderXY(y, x, gameArr[y][x]);
+        }
+    }
+}
 
 //cat object
 let cat = {y : 8, x : 5, class : 'cat'};
@@ -85,10 +94,12 @@ const stopGame = () => {
 //depending on class of the element update counter
 const changeCounters = (className) => {
     if(className === 'fish'){
+        sparkleSound.currentTime = 0;
         sparkleSound.play();
         changeFishCounter();
     };
     if(className === 'raindrop'){
+        dropSound.currentTime = 0;
         dropSound.play();
         changeDropCounter();
     };
@@ -100,13 +111,11 @@ const changeFishCounter = () => {
     document.querySelector('.right-elements p span').innerText = fishCount;
 
     if(fishCount === 5) {
-        console.log('5');
         stopGame();
         intervalMove = setInterval(moveElems, 400);
     }
 
     if(fishCount === 10) {
-        console.log('10');
         stopGame();
         intervalMove = setInterval(moveElems, 250);
     }
@@ -121,7 +130,7 @@ const changeFishCounter = () => {
 //update raindrop counter - verify if lose
 const changeDropCounter = () => {
     raindropCount++;
-    document.querySelector('.right-elements p:nth-child(3) span').innerText = raindropCount;
+    document.querySelector('.right-elements p:nth-child(4) span').innerText = raindropCount;
     if(raindropCount === 5) {
         stopGame();
         document.removeEventListener('keydown', changeDirection);

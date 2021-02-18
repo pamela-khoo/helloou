@@ -61,7 +61,7 @@
 }
 
 .cat-head {
-    background-image: url(./img/Catface.svg);
+    background-image: url(./img/Catface_sideways.svg);
     background-size: cover;
 } 
 
@@ -73,6 +73,22 @@
 .fish-dead {
     background-image: url(./img/Fish_dead.svg);
     background-size: cover;
+}
+
+.rotation-right {
+    transform: rotate(0deg);
+}
+
+.rotation-down {
+    transform: rotate(90deg);
+}
+
+.rotation-left {
+    transform: rotate(180deg);
+}
+
+.rotation-up {
+    transform: rotate(270deg);
 }
 
 /* LEFT SIDE  */

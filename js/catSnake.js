@@ -1,4 +1,4 @@
-import {getUrlParams, setUrlParams, gridSize, gameArr, renderGameArr, reloadOnRestartClick, sparkleSound, winSound, loseSound} from '../js/gamesFunctions.js';
+import {getUrlParams, setUrlParams, reloadOnRestartClick, sparkleSound, winSound, loseSound, renderXY, gridSize, gameArr} from '../js/gamesFunctions.js';
 
 //dealing with queryParams
 let params = getUrlParams();
@@ -24,7 +24,7 @@ const hasWin = () => {
 
 //show loseHTML if lose
 const hasLost = () => {
-    loseSound.volume = 0.2;
+    loseSound.volume = 1;
     loseSound.play();
     let loseNode = document.querySelector('#lose-container');
     loseNode.classList.toggle('hide');
@@ -42,9 +42,25 @@ const hasLost = () => {
 
 //--------------start building game-------------//
 
+//RENDER GAME
+
+//function to iterate through gameArr and apply change to HTML elements
+//iterate through cat to add rotate class according to direction
+const renderGameArr = () => {
+    for(let y = 0; y < gridSize; y++) {
+        for(let x = 0; x < gridSize; x++) {
+            renderXY(y, x, gameArr[y][x]);
+        }
+    }
+    //add class rotation for each cat part
+    cat.forEach( ({x, y, rotate}) => document.getElementById(`${y}${x}`).classList.add(rotate)); 
+}
+
+//CATSTUFF
+
 //cat object in an
 //array because will push dead fishes later
-let cat = [{y : gameArr.length / 2, x : gameArr[0].length / 5, class : 'cat-head'}];
+let cat = [{y : gameArr.length / 2, x : gameArr[0].length / 5, class : 'cat-head', rotate : 'rotation-right'}];
 
 //render cat array (with future dead fishes)
 const putCat = (cat) => {
@@ -52,20 +68,6 @@ const putCat = (cat) => {
         gameArr[catPart.y][catPart.x] = catPart.class;
     })
 }
-
-//random fish placement function
-const randomFishPos = () => {
-    let randomY = Math.floor(Math.random() * gridSize);
-    let randomX = Math.floor(Math.random() * gridSize);
-    while(gameArr[randomY][randomX] !== 'empty') {
-        randomY = Math.floor(Math.random() * gridSize);
-        randomX = Math.floor(Math.random() * gridSize);
-    }
-    gameArr[randomY][randomX] = 'fish-alive';
-} 
-
-let direction = 'right';
-let nextDirection = direction;
 
 //clear old cat position for each part of the cat
 const clearCat = (cat) => {
@@ -80,19 +82,19 @@ const newHeadPosition = (tempCatPos, direction) => {
     switch(direction) {
         case 'right' :
             tempCatPos.x += 1;
-            tempCatPos.direction = 'right';
+            tempCatPos.rotate = 'rotation-right';
             break;
         case 'left' :
             tempCatPos.x -= 1;
-            tempCatPos.direction = 'left';
+            tempCatPos.rotate = 'rotation-left';
             break;
         case 'up' :
             tempCatPos.y -= 1;
-            tempCatPos.direction = 'up';
+            tempCatPos.rotate = 'rotation-up';
             break;
         case 'down' :
             tempCatPos.y += 1;
-            tempCatPos.direction = 'down';
+            tempCatPos.rotate = 'rotation-down';
             break;
     }
 }
@@ -113,12 +115,31 @@ const canMoveHead = (tempCatPos) => {
 //at the end of the loop newPos is equal to last fish old position
 const moveCat = (newPos) => {
     cat.forEach(catPart => {
-        const tempPos = {y: catPart.y, x: catPart.x};
+        const tempPos = {y: catPart.y, x: catPart.x, rotate : catPart.rotate};
         catPart.y = newPos.y;
         catPart.x = newPos.x;
+        catPart.rotate = newPos.rotate;
         newPos = tempPos;
     });
 };
+
+//FISH STUFF
+
+//random fish placement function
+const randomFishPos = () => {
+    let randomY = Math.floor(Math.random() * gridSize);
+    let randomX = Math.floor(Math.random() * gridSize);
+    while(gameArr[randomY][randomX] !== 'empty') {
+        randomY = Math.floor(Math.random() * gridSize);
+        randomX = Math.floor(Math.random() * gridSize);
+    }
+    gameArr[randomY][randomX] = 'fish-alive';
+} 
+
+//set direction
+//use nextDirection to apply new direction only when enter interval
+let direction = 'right';
+let nextDirection = direction;
 
 //declare interval here to be able to clear it when user loses
 let interval;
@@ -139,17 +160,20 @@ const move = () => {
     newHeadPosition(tempCatPos, direction);
     if(canMoveHead(tempCatPos)) {
         const isFish = gameArr[tempCatPos.y][tempCatPos.x] === 'fish-alive';
-
+        
         clearCat(cat);
         moveCat(tempCatPos);
 
         putCat(cat);
         renderGameArr();
-
+        console.log(cat[0].rotate);
         if(isFish) {
             cat.push({y : tempCatPos.y, x : tempCatPos.x, class: 'fish-dead'});
             fishCount++;
+
+            sparkleSound.currentTime = 0;
             sparkleSound.play();
+
             if(fishCount === 5) {
                 clearInterval(interval);
                 interval = setInterval(move, 250)

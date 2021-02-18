@@ -49,15 +49,7 @@ const renderXY = (y, x, className) => {
     .setAttribute('class', `${className}`);
 }
 
-//function to iterate through gameArr and apply change to HTML elements
-const renderGameArr = () => {
-    for(let y = 0; y < gridSize; y++) {
-        for(let x = 0; x < gridSize; x++) {
-            renderXY(y, x, gameArr[y][x]);
-        }
-    }
-}
-
+//reload all game-page when user click on restart button
 const reloadOnRestartClick = () => {
     let restartBtns = [...document.querySelectorAll('.restart')]
     const reload = () => {
@@ -73,4 +65,4 @@ export const sparkleSound = new Audio('./style/music/sparkle-sound.mp3');
 export const winSound = new Audio('./style/music/yay-sound.mp3');
 export const loseSound = new Audio('./style/music/ohnonono.mp3');
 
-export {setUrlParams, getUrlParams, renderGameArr, reloadOnRestartClick}
+export {setUrlParams, getUrlParams, reloadOnRestartClick, renderXY}
