@@ -8,7 +8,7 @@ I decided to create a cute and wholesome game about helping a cat having its bes
 
 
 
-## 2 mini games (for now...)!
+## 2 mini games!
 
 ☞ Cat snake
 
