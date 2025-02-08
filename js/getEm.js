@@ -126,7 +126,13 @@ const changeFishCounter = () => {
         intervalMove = setInterval(moveElems, 250);
     }
 
-    if(fishCount === 20) {
+    if(fishCount === 20 && raindropCount === 4 ) {
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+
+    if(fishCount === 20 && raindropCount === 0) {
         stopGame();
         document.removeEventListener('keydown', changeDirection);
         hasWin();
