@@ -56,6 +56,7 @@ const animItemSnake = bodymovin.loadAnimation({
 });
 
 catSnakeBtn.addEventListener('mouseenter', () => {
+  console.log("Index page 1");
   sparkleSound.play();
   catSnakeSvg.classList.remove('hide');
   animItemSnake.goToAndPlay(0,true);
@@ -74,6 +75,7 @@ const animItemGetEm = bodymovin.loadAnimation({
 
 getEmBtn.addEventListener('mouseenter', () => {
   sparkleSound.play();
+  console.log("Index page 2");
   getEmSvg.classList.remove('hide');
   animItemGetEm.goToAndPlay(0,true);
 })
@@ -125,7 +127,6 @@ if(urlParams.has('game2')) {
 const backgroundMusic = document.querySelector('#background-music');
 backgroundMusic.volume = 0.5;
 
-console.log("Index page");
 
 
 
