@@ -111,39 +111,6 @@ const changeCounters = (className) => {
     };
 }
 
-// Central function to check game over conditions after both counters are updated
-const checkGameOver = () => {
-
-    if(fishCount === 2 && raindropCount === 2) {
-        console.log("Testing lost fish=2 rain=2")
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasLost();
-    }
-
-    if(fishCount === 20 && raindropCount === 4) {
-        console.log("Testing lost fish=20 rain=4")
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasLost();
-    }
-
-    // Check for the losing condition: 20 fish and 1 raindrop
-    if(fishCount === 20 && raindropCount === 1) {
-        console.log("Testing lost fish=20 rain=1")
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasLost();
-    }
-
-    if(fishCount === 20 && raindropCount === 0) {
-        console.log("Testing WIN fish=20 rain=0")
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasWin();
-    }
-}
-
 //update fish counter and add condition to accelerate game - verify if win
 const changeFishCounter = () => {
     fishCount++;
@@ -178,6 +145,39 @@ const changeDropCounter = () => {
         stopGame();
         document.removeEventListener('keydown', changeDirection);
         hasLost();
+    }
+}
+
+// Central function to check game over conditions after both counters are updated
+const checkGameOver = () => {
+
+    if(fishCount === 2 && raindropCount === 2) {
+        console.log("Testing lost fish=2 rain=2")
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+
+    if(fishCount === 20 && raindropCount === 4) {
+        console.log("Testing lost fish=20 rain=4")
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+
+    // Check for the losing condition: 20 fish and 1 raindrop
+    if(fishCount === 20 && raindropCount === 1) {
+        console.log("Testing lost fish=20 rain=1")
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+
+    if(fishCount === 20 && raindropCount === 0) {
+        console.log("Testing WIN fish=20 rain=0")
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasWin();
     }
 }
 
