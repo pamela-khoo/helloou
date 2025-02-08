@@ -116,6 +116,15 @@ const changeFishCounter = () => {
     fishCount++;
     document.querySelector('.right-elements p span').innerText = fishCount;
 
+    console.log("Fish:", fishCount);
+    console.log("Rain", raindropCount);
+
+    if(fishCount === 1 || raindropCount === 4) {
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+
     if(fishCount === 5) {
         stopGame();
         intervalMove = setInterval(moveElems, 400);
@@ -124,12 +133,6 @@ const changeFishCounter = () => {
     if(fishCount === 10) {
         stopGame();
         intervalMove = setInterval(moveElems, 250);
-    }
-
-    if(fishCount === 20 && raindropCount === 4 ) {
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasLost();
     }
 
     if(fishCount === 20 && raindropCount === 0) {

@@ -125,6 +125,9 @@ if(urlParams.has('game2')) {
 const backgroundMusic = document.querySelector('#background-music');
 backgroundMusic.volume = 0.5;
 
+console.log("Index page");
+
+
 
 
 
