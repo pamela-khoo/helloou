@@ -109,6 +109,9 @@ const changeCounters = (className) => {
         dropSound.play();
         changeDropCounter();
     };
+
+    // check for the game-over condition
+    checkGameOver();
 }
 
 //update fish counter and add condition to accelerate game - verify if win
@@ -180,9 +183,6 @@ const checkGameOver = () => {
         hasWin();
     }
 }
-
-// check for the game-over condition
-checkGameOver();
 
 //create fish or raindrop - more raindrop than fish
 const createElems = () => {

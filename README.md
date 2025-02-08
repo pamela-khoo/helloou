@@ -16,7 +16,7 @@ I decided to create a cute and wholesome game about helping a cat having its bes
 
 ## ENJOY
 
-[Come and play here](https://ronronscelestes.github.io/dayInCatLife/)
+[Come and play here](https://pamela-khoo.github.io/test/index.html?)
 
 ![](https://media4.giphy.com/media/4XnL30fhVarrG/giphy.gif?cid=ecf05e47xlvmln4k34f9l0d8iu5lkw8ftdvd6cy0yrs0w5wb&rid=giphy.gif)
 
