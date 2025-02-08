@@ -119,12 +119,6 @@ const changeFishCounter = () => {
     console.log("Fish:", fishCount);
     console.log("Rain", raindropCount);
 
-    if(fishCount === 1 || raindropCount === 4) {
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasLost();
-    }
-
     if(fishCount === 5) {
         stopGame();
         intervalMove = setInterval(moveElems, 400);
@@ -135,11 +129,12 @@ const changeFishCounter = () => {
         intervalMove = setInterval(moveElems, 250);
     }
 
-    if(fishCount === 20 && raindropCount === 0) {
+    /*if(fishCount === 20 && raindropCount === 0) {
         stopGame();
         document.removeEventListener('keydown', changeDirection);
         hasWin();
-    }
+    }*/
+        
 }
 
 //update raindrop counter - verify if lose
@@ -152,6 +147,25 @@ const changeDropCounter = () => {
         hasLost();
     }
 }
+
+// Central function to check game over conditions after both counters are updated
+const checkGameOver = () => {
+
+    if(fishCount === 2 && raindropCount === 2) {
+        console.log("Testing lost fish=2 rain=2")
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+
+    // Check for the losing condition: 20 fish and 1 raindrop
+    if(fishCount === 20 && raindropCount === 1) {
+        console.log("One drop lost")
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+};
 
 //create fish or raindrop - more raindrop than fish
 const createElems = () => {
@@ -275,3 +289,6 @@ startLink.addEventListener('click', startGame);
 
 //reload page if click on restart buttons
 reloadOnRestartClick();
+
+// check for the game-over condition
+checkGameOver();
