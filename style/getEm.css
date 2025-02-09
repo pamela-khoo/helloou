@@ -57,6 +57,11 @@
     background-size: cover;
 } 
 
+.demon {
+    background-image: url(./img//demon.gif);
+    background-size: cover;
+} 
+
 .fish {
     background-image: url(./img/Fish_alive.svg);
     background-size: cover;

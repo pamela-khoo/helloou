@@ -61,7 +61,7 @@ const renderGameArr = () => {
 }
 
 //cat object
-let cat = {y : 8, x : 5, class : 'cat'};
+let cat = {y : 8, x : 5, class : 'demon'};
 
 //can you move cat at this pos
 const canMoveCat = (tempCatPos) => {
