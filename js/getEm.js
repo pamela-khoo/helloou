@@ -99,7 +99,7 @@ const stopGame = () => {
 
 //depending on class of the element update counter
 const changeCounters = (className) => {
-    if(className === 'fish'){
+    if(className === 'fish' || className === 'fish2'){
         sparkleSound.currentTime = 0;
         sparkleSound.play();
         changeFishCounter();
@@ -184,11 +184,67 @@ const checkGameOver = () => {
     }
 }
 
+/*
 //create fish or raindrop - more raindrop than fish
 const createElems = () => {
     Math.round(Math.random() * 20) > 7 ? randomElem('raindrop') : randomElem('fish');
     renderGameArr();
 }
+*/
+
+// Create raindrop or other elements - raindrop is more frequent
+const createElems = () => {
+    // Generate a random number between 0 and 20
+    const randomNumber = Math.round(Math.random() * 20);
+
+    // If the random number is between 8 and 20, it's a raindrop
+    if (randomNumber > 7) {
+        randomElem('raindrop');
+    }
+    else {
+        const elementIndex = Math.floor(Math.random() * 2); 
+        
+        // Map the index to the corresponding element
+        switch (elementIndex) {
+            case 0:
+                randomElem('fish');
+                break;
+            case 1:
+                randomElem('fish2');
+                break;
+            /*
+            case 2:
+                randomElem('element1'); 
+                break;
+            case 3:
+                randomElem('element2');
+                break;
+            case 4:
+                randomElem('element3'); 
+                break;
+            case 5:
+                randomElem('element4'); 
+                break;
+            case 6:
+                randomElem('element5'); 
+                break;
+            case 7:
+                randomElem('element6'); 
+                break;
+            case 8:
+                randomElem('element7'); 
+                break;
+            case 9:
+                randomElem('element8'); 
+                break;
+            */
+        }
+    }
+
+    // Update the game state after adding the element
+    renderGameArr();
+}
+
 
 let fishCount = 0;
 let raindropCount = 0;

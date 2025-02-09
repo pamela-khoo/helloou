@@ -63,6 +63,12 @@
     transform: rotate(90deg);
 }
 
+.fish2 {
+    background-image: url(./img/Fish_dead.svg);
+    background-size: cover;
+    transform: rotate(90deg);
+}
+
 .raindrop {
     background-image: url(./img/raindrop.svg);
     background-size: cover;
