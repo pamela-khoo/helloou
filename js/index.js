@@ -56,7 +56,7 @@ const animItemSnake = bodymovin.loadAnimation({
 });
 
 catSnakeBtn.addEventListener('mouseenter', () => {
-  console.log("Index page 1 - Test 1.8");
+  console.log("Index page 1 - Test 1.9");
   sparkleSound.play();
   catSnakeSvg.classList.remove('hide');
   animItemSnake.goToAndPlay(0,true);
@@ -75,7 +75,7 @@ const animItemGetEm = bodymovin.loadAnimation({
 
 getEmBtn.addEventListener('mouseenter', () => {
   sparkleSound.play();
-  console.log("Index page 2 - Test 1.8");
+  console.log("Index page 2 - Test 1.9");
   getEmSvg.classList.remove('hide');
   animItemGetEm.goToAndPlay(0,true);
 })

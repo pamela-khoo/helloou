@@ -5,7 +5,7 @@ const dropSound = new Audio('./style/music/drop-sound.mp3');
 dropSound.volume = 0.4;
 //background sound
 const backgroundMusic = document.querySelector('#background-music');
-backgroundMusic.volume = 0.3;
+backgroundMusic.volume = 0.1;
 
 //dealing with queryParams
 let params = getUrlParams();
@@ -128,17 +128,17 @@ const changeFishCounter = () => {
 
     if(fishCount === 5) {
         stopGame();
-        intervalMove = setInterval(moveElems, 350);
+        intervalMove = setInterval(moveElems, 300);
     }
 
     if(fishCount === 10) {
         stopGame();
-        intervalMove = setInterval(moveElems, 300);
+        intervalMove = setInterval(moveElems, 250);
     }
 
     if(fishCount === 5) {
         stopGame();
-        intervalMove = setInterval(moveElems, 250);
+        intervalMove = setInterval(moveElems, 150);
     }        
 }
 
