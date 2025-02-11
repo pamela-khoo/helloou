@@ -98,8 +98,12 @@ const stopGame = () => {
 } 
 
 //depending on class of the element update counter
+
+const validClasses = ['gingerbread', 'netball', 'chess', 'skating', 'archery', 'puzzle', 'movie',
+                      'weed', 'nut', 'game', 'wine', 'star', 'snorkel', 'duck', 'breakfast'];
+
 const changeCounters = (className) => {
-    if(className === 'fish' || className === 'duck' || className === 'breakfast') {
+    if (validClasses.includes(className)) {
         sparkleSound.currentTime = 0;
         sparkleSound.play();
         changeFishCounter();
