@@ -368,7 +368,7 @@ const onKeyPress = (keypress) => {
 
 //hide intro - start interval - listen to keydown 
 const startGame = () => {
-    backgroundMusic.volume = 0.1;
+    backgroundMusic.volume = 0.05;
     sparkleSound.play();
     document.querySelector('#intro-game').classList.add('hide');
     intervalMove = setInterval(moveElems, 400);
