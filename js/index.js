@@ -125,7 +125,7 @@ if(urlParams.has('game2')) {
 
 //dealing with sound
 const backgroundMusic = document.querySelector('#background-music');
-backgroundMusic.volume = 0.5;
+backgroundMusic.volume = 0.1;
 
 
 
