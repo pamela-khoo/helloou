@@ -124,12 +124,17 @@ const changeFishCounter = () => {
 
     if(fishCount === 5) {
         stopGame();
-        intervalMove = setInterval(moveElems, 400);
+        intervalMove = setInterval(moveElems, 250);
     }
 
     if(fishCount === 10) {
         stopGame();
-        intervalMove = setInterval(moveElems, 250);
+        intervalMove = setInterval(moveElems, 100);
+    }
+
+    if(fishCount === 5) {
+        stopGame();
+        intervalMove = setInterval(moveElems, 50);
     }
 
     /*if(fishCount === 20 && raindropCount === 0) {
@@ -154,6 +159,7 @@ const changeDropCounter = () => {
 // Central function to check game over conditions after both counters are updated
 const checkGameOver = () => {
 
+    //test - to remove
     if(fishCount === 2 && raindropCount === 2) {
         console.log("Testing lost fish=2 rain=2")
         stopGame();
@@ -168,7 +174,20 @@ const checkGameOver = () => {
         hasLost();
     }
 
-    // Check for the losing condition: 20 fish and 1 raindrop
+    if(fishCount === 20 && raindropCount === 3) {
+        console.log("Testing lost fish=20 rain=3")
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+
+    if(fishCount === 20 && raindropCount === 2) {
+        console.log("Testing lost fish=20 rain=2")
+        stopGame();
+        document.removeEventListener('keydown', changeDirection);
+        hasLost();
+    }
+
     if(fishCount === 20 && raindropCount === 1) {
         console.log("Testing lost fish=20 rain=1")
         stopGame();
@@ -347,7 +366,7 @@ const startGame = () => {
     backgroundMusic.volume = 0.1;
     sparkleSound.play();
     document.querySelector('#intro-game').classList.add('hide');
-    intervalMove = setInterval(moveElems, 500);
+    intervalMove = setInterval(moveElems, 400);
     document.addEventListener('keydown', onKeyPress);
 
     //mobile version
