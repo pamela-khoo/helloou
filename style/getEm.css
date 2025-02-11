@@ -57,21 +57,20 @@
     background-size: cover;
 } 
 
-.demon {
-    background-image: url(./img//demon.gif);
-    background-size: cover;
-} 
-
 .fish {
     background-image: url(./img/Fish_alive.svg);
     background-size: cover;
     transform: rotate(90deg);
 }
 
-.fish2 {
-    background-image: url(./img/Fish_dead.svg);
+.breakfast {
+    background-image: url(./img/breakfast.png);
     background-size: cover;
-    transform: rotate(90deg);
+}
+
+.duck {
+    background-image: url(./img/duck.png);
+    background-size: cover;
 }
 
 .raindrop {

@@ -61,7 +61,7 @@ const renderGameArr = () => {
 }
 
 //cat object
-let cat = {y : 8, x : 5, class : 'demon'};
+let cat = {y : 8, x : 5, class : 'cat'};
 
 //can you move cat at this pos
 const canMoveCat = (tempCatPos) => {
@@ -99,7 +99,7 @@ const stopGame = () => {
 
 //depending on class of the element update counter
 const changeCounters = (className) => {
-    if(className === 'fish' || className === 'fish2'){
+    if(className === 'fish' || className === 'duck' || className === 'breakfast') {
         sparkleSound.currentTime = 0;
         sparkleSound.play();
         changeFishCounter();
@@ -202,7 +202,7 @@ const createElems = () => {
         randomElem('raindrop');
     }
     else {
-        const elementIndex = Math.floor(Math.random() * 2); 
+        const elementIndex = Math.floor(Math.random() * 3); 
         
         // Map the index to the corresponding element
         switch (elementIndex) {
@@ -210,12 +210,13 @@ const createElems = () => {
                 randomElem('fish');
                 break;
             case 1:
-                randomElem('fish2');
+                randomElem('duck');
+                break;
+            
+            case 2:
+                randomElem('breakfast'); 
                 break;
             /*
-            case 2:
-                randomElem('element1'); 
-                break;
             case 3:
                 randomElem('element2');
                 break;
