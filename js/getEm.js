@@ -124,25 +124,18 @@ const changeFishCounter = () => {
 
     if(fishCount === 5) {
         stopGame();
-        intervalMove = setInterval(moveElems, 250);
+        intervalMove = setInterval(moveElems, 350);
     }
 
     if(fishCount === 10) {
         stopGame();
-        intervalMove = setInterval(moveElems, 100);
+        intervalMove = setInterval(moveElems, 300);
     }
 
     if(fishCount === 5) {
         stopGame();
-        intervalMove = setInterval(moveElems, 50);
-    }
-
-    /*if(fishCount === 20 && raindropCount === 0) {
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasWin();
-    }*/
-        
+        intervalMove = setInterval(moveElems, 250);
+    }        
 }
 
 //update raindrop counter - verify if lose
@@ -221,43 +214,55 @@ const createElems = () => {
         randomElem('raindrop');
     }
     else {
-        const elementIndex = Math.floor(Math.random() * 3); 
+        const elementIndex = Math.floor(Math.random() * 15); 
         
         // Map the index to the corresponding element
         switch (elementIndex) {
             case 0:
-                randomElem('fish');
+                randomElem('gingerbread');
                 break;
             case 1:
-                randomElem('duck');
+                randomElem('netball');
                 break;
-            
             case 2:
-                randomElem('breakfast'); 
+                randomElem('chess'); 
                 break;
-            /*
             case 3:
-                randomElem('element2');
+                randomElem('skating');
                 break;
             case 4:
-                randomElem('element3'); 
+                randomElem('archery'); 
                 break;
             case 5:
-                randomElem('element4'); 
+                randomElem('movie'); 
                 break;
             case 6:
-                randomElem('element5'); 
+                randomElem('puzzle'); 
                 break;
             case 7:
-                randomElem('element6'); 
+                randomElem('weed'); 
                 break;
             case 8:
-                randomElem('element7'); 
+                randomElem('nut'); 
                 break;
             case 9:
-                randomElem('element8'); 
+                randomElem('game'); 
                 break;
-            */
+            case 10:
+                randomElem('wine'); 
+                break;
+            case 11:
+                randomElem('star'); 
+                break;
+            case 12:
+                randomElem('snorkel'); 
+                break;
+            case 13:
+                randomElem('duck'); 
+                break;
+            case 14:
+                randomElem('breakfast'); 
+                break;
         }
     }
 

@@ -63,13 +63,78 @@
     transform: rotate(90deg);
 }
 
-.breakfast {
-    background-image: url(./img/breakfast.png);
+.gingerbread {
+    background-image: url(./img/gingerbread.png);
+    background-size: cover;
+}
+
+.netball {
+    background-image: url(./img/netball.png);
+    background-size: cover;
+}
+
+.chess {
+    background-image: url(./img/chess.png);
+    background-size: cover;
+}
+
+.skating {
+    background-image: url(./img/skating.png);
+    background-size: cover;
+}
+
+.archery {
+    background-image: url(./img/archery.png);
+    background-size: cover;
+}
+
+.movie {
+    background-image: url(./img/movie.png);
+    background-size: cover;
+}
+
+.puzzle {
+    background-image: url(./img/puzzle.png);
+    background-size: cover;
+}
+
+.weed {
+    background-image: url(./img/weed.png);
+    background-size: cover;
+}
+
+.nut {
+    background-image: url(./img/nut.png);
+    background-size: cover;
+}
+
+.game {
+    background-image: url(./img/game.png);
+    background-size: cover;
+}
+
+.wine {
+    background-image: url(./img/wine.png);
+    background-size: cover;
+}
+
+.star {
+    background-image: url(./img/star.png);
+    background-size: cover;
+}
+
+.snorkel {
+    background-image: url(./img/snorkel.png);
     background-size: cover;
 }
 
 .duck {
     background-image: url(./img/duck.png);
+    background-size: cover;
+}
+
+.breakfast {
+    background-image: url(./img/breakfast.png);
     background-size: cover;
 }
 
