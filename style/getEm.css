@@ -503,7 +503,7 @@
     position: absolute;
     border-radius: 0.7rem;
     border: 0.35rem solid #000000;
-    background-color: #881010;
+    background-color: #000000;
     clip-path: polygon(100% 0%, 50% 70%, 0% 0%, 0% 100%, 100% 100%);
     z-index: 300;
 }
@@ -514,7 +514,7 @@
     left: 0;
     position: absolute;
     border-radius: 0.7rem;
-    background-color: #000000;
+    background-color: #881010;
     clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 90%);
     z-index: 100;
 }
@@ -525,7 +525,7 @@
     left: 0;
     position: relative;
     border-radius: 0.7rem;
-    background-color: #000000;
+    background-color: #881010;
     z-index: 400;
     clip-path: polygon(0% 0%, 100% 0%, 50% 81%);
 }
