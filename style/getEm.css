@@ -133,11 +133,6 @@
     background-size: cover;
 }
 
-.breakfast {
-    background-image: url(./img/breakfast.png);
-    background-size: cover;
-}
-
 .raindrop {
     background-image: url(./img/raindrop.svg);
     background-size: cover;
@@ -243,9 +238,9 @@
 
 .lose-container p {
     margin-bottom: 64px;
-    font-family: 'Duera Bold';
+    font-family: 'Duera';
     font-size: 32px;
-    line-height: 90%;
+    line-height: 80%;
     text-align: center;
     letter-spacing: 0.02em;
     /*text-transform: uppercase;*/
@@ -636,10 +631,10 @@
    }
 }
 .scissors {
-    cursor: url("https://i.postimg.cc/GtLCdKxR/sisors.png"), pointer;
+    cursor: url(./img/scissors_closed.png), pointer;
 }
 .scissors:active {
-    cursor: url("https://i.postimg.cc/GtXQ7WPZ/pngwing-com.png"), pointer;
+    cursor: url(./img/scissors_open.png), pointer;
 }
 .cursor {
     cursor: pointer;

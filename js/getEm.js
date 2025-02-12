@@ -22,12 +22,6 @@ const hasWin = () => {
     let winNode = document.querySelector('#win-container');
     winNode.classList.toggle('hide');
     winNode.style.animation = 'appear 0.3s';
-
-    // dealing with winning query params
-    let winHomeBtn = document.querySelector('#win-home');
-    params.game2 = 'getEm';
-    let newURL = setUrlParams(`${winHomeBtn.href}`, params);
-    winHomeBtn.href = newURL;
 }
 
 //show loseHTML if lose
@@ -104,7 +98,7 @@ const stopGame = () => {
 //depending on class of the element update counter
 
 const validClasses = ['gingerbread', 'netball', 'chess', 'skating', 'archery', 'puzzle', 'movie',
-                      'weed', 'nut', 'game', 'wine', 'star', 'snorkel', 'duck', 'breakfast'];
+                      'weed', 'nut', 'game', 'wine', 'star', 'snorkel', 'duck'];
 
 const changeCounters = (className) => {
     if (validClasses.includes(className)) {
@@ -222,7 +216,7 @@ const createElems = () => {
         randomElem('raindrop');
     }
     else {
-        const elementIndex = Math.floor(Math.random() * 15); 
+        const elementIndex = Math.floor(Math.random() * 14); 
         
         // Map the index to the corresponding element
         switch (elementIndex) {
@@ -267,9 +261,6 @@ const createElems = () => {
                 break;
             case 13:
                 randomElem('duck'); 
-                break;
-            case 14:
-                randomElem('breakfast'); 
                 break;
         }
     }
