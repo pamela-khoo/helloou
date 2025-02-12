@@ -623,6 +623,7 @@
     padding: 1rem;
 }
 .note__text p {
+    font-family: 'Allura';
     font-size: 0.9rem;
     color: #333333;
     margin-bottom: 1rem;
@@ -630,12 +631,14 @@
 }
 @media (min-width: 300px) and (max-width: 600px) {
     .note__text p {
+        font-family: 'Allura';
         font-size: 1.025rem;
         color: #333333;
    }
 }
 @media (min-width: 600px) {
     .note__text p {
+        font-family: 'Allura';
         font-size: 1.15rem;
         color: #333333;
    }
