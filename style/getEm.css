@@ -8,6 +8,11 @@
     src: url('./fonts/Duera-ExpaMedi-PERSONAL.ttf')
 }
 
+@font-face {
+    font-family: "Allura";
+    src: url('./fonts/Allura-Regular.ttf')
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -237,10 +242,12 @@
 }
 
 .lose-container p {
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 64px;
     font-family: 'Duera Bold';
     font-size: 32px;
-    line-height: 80%;
+    line-height: 0.05em;
     text-align: center;
     letter-spacing: 0.02em;
     /*text-transform: uppercase;*/
@@ -495,8 +502,8 @@
     left: 0;
     position: absolute;
     border-radius: 0.7rem;
-    border: 0.35rem solid #967b5c;
-    background-color: #ba9872;
+    border: 0.35rem solid #000000;
+    background-color: #881010;
     clip-path: polygon(100% 0%, 50% 70%, 0% 0%, 0% 100%, 100% 100%);
     z-index: 300;
 }
@@ -507,7 +514,7 @@
     left: 0;
     position: absolute;
     border-radius: 0.7rem;
-    background-color: #967b5c;
+    background-color: #000000;
     clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 90%);
     z-index: 100;
 }
@@ -518,7 +525,7 @@
     left: 0;
     position: relative;
     border-radius: 0.7rem;
-    background-color: #967b5c;
+    background-color: #000000;
     z-index: 400;
     clip-path: polygon(0% 0%, 100% 0%, 50% 81%);
 }
@@ -532,9 +539,9 @@
     bottom: 0;
     right: 0;
     z-index: 400;
-    background-image: url("https://www.freepnglogos.com/uploads/heart-png/emoji-heart-33.png");
-    background-color: #f9f9f9;
-    border: 0.3rem solid #e2e2e2;
+    background-image: url(./img/heart.png);
+    background-color: #000000;
+    border: 0.3rem solid #000000;
     background-size: 2rem;
     background-position: center;
 }
@@ -558,9 +565,9 @@
     bottom: 0;
     right: 0;
     z-index: 300;
-    background-image: url("https://www.freepnglogos.com/uploads/heart-png/emoji-heart-33.png");
-    background-color: #f9f9f9;
-    border: 0.3rem solid #e2e2e2;
+    background-image: url(./img/heart.png);
+    background-color: #000000;
+    border: 0.3rem solid #000000;
     background-size: 2rem;
     background-position: center;
 }
@@ -612,22 +619,25 @@
     height: 45%;
 }
 .note__text {
-    font-family: "Sofia";
+    font-family: 'Allura';
     padding: 1rem;
 }
 .note__text p {
     font-size: 0.9rem;
+    color: #333333;
     margin-bottom: 1rem;
     text-align: center;
 }
 @media (min-width: 300px) and (max-width: 600px) {
     .note__text p {
         font-size: 1.025rem;
+        color: #333333;
    }
 }
 @media (min-width: 600px) {
     .note__text p {
         font-size: 1.15rem;
+        color: #333333;
    }
 }
 .scissors {
