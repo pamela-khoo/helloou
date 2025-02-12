@@ -35,7 +35,7 @@ const hasLost = (loseContainerSelector = '.lose-5') => {
     loseSound.volume = 1;
     loseSound.play();
 
-    let loseNode = document.querySelectorAll(loseContainerSelector);
+    let loseNodes = document.querySelectorAll(loseContainerSelector);
 
     loseNodes.forEach(loseNode => {
         loseNode.classList.toggle('hide');
