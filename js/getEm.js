@@ -154,14 +154,6 @@ const changeDropCounter = () => {
 // Central function to check game over conditions after both counters are updated
 const checkGameOver = () => {
 
-    //test - to remove
-    if(fishCount === 2 && raindropCount === 2) {
-        console.log("Testing lost fish=2 rain=2")
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasLost();
-    }
-
     if(fishCount === 20 && raindropCount === 4) {
         console.log("Testing lost fish=20 rain=4")
         stopGame();
