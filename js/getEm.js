@@ -1,4 +1,4 @@
-import {getUrlParams, setUrlParams, gridSize, gameArr, reloadOnRestartClick, sparkleSound, loseSound, renderXY} from '../js/gamesFunctions.js';
+import {getUrlParams, setUrlParams, gridSize, gameArr, reloadOnRestartClick, sparkleSound, winSound, loseSound, renderXY} from '../js/gamesFunctions.js';
 
 //sounds effects
 const dropSound = new Audio('./style/music/drop-sound.mp3');
@@ -8,8 +8,8 @@ const backgroundMusic = document.querySelector('#background-music');
 backgroundMusic.volume = 0.1;
 
 const hasWin = () => {
-    //winSound.volume = 0.2;
-    //winSound.play();
+    winSound.volume = 0.2;
+    winSound.play();
     let winNode = document.querySelector('#win-container');
     winNode.classList.toggle('hide');
     winNode.style.animation = 'appear 0.3s';
@@ -118,7 +118,7 @@ const changeFishCounter = () => {
 
     if(fishCount === 15) {
         stopGame();
-        intervalMove = setInterval(moveElems, 50);
+        intervalMove = setInterval(moveElems, 100);
     }        
 }
 
@@ -135,13 +135,6 @@ const changeDropCounter = () => {
 
 // Central function to check game over conditions after both counters are updated
 const checkGameOver = () => {
-
-    //FOR TESTING TO REMOVE
-    if(fishCount === 2 && raindropCount === 2) {
-        stopGame();
-        document.removeEventListener('keydown', changeDirection);
-        hasWin();
-    }
 
     if(fishCount === 20 && raindropCount === 4) {
         console.log("Testing lost fish=20 rain=4")
