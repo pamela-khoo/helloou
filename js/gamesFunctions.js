@@ -62,7 +62,6 @@ const reloadOnRestartClick = () => {
 
 //sparkle sound
 export const sparkleSound = new Audio('./style/music/sparkle-sound.mp3');
-export const winSound = new Audio('./style/music/yay-sound.mp3');
 export const loseSound = new Audio('./style/music/ohnonono.mp3');
 
 export {setUrlParams, getUrlParams, reloadOnRestartClick, renderXY}

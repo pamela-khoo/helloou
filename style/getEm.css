@@ -151,10 +151,17 @@
 
 /* LEFT SIDE  */
 
+.bottom-elements {
+    min-width: 210px;
+    bottom: 5%;
+    left: 5%;
+    position: absolute;
+}
+
 .left-elements {
     min-width: 210px;
     position: relative;
-    top: 10%;
+    bottom: 10%;
     align-self: flex-start;
     width: 10%;
 }

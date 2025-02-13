@@ -249,13 +249,6 @@ const createElems = () => {
         }
     }
 
-    // Check if randomNumber is 8 and replace the cat object
-    if (randomNumber === 8) {
-        clearElem(cat); // Clear the current cat position
-        cat = { y: 8, x: Math.floor(Math.random() * gridSize), class: 'skullfire' }; // Replace with a new cat object
-        putElem(cat); // Put the new cat in the gameArr
-    }
-
     // Update the game state after adding the element
     renderGameArr();
 }
