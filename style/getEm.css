@@ -178,13 +178,12 @@
 
 .left-elements p {
     position: relative;
-    top: 50px;
-    writing-mode:vertical-rl;
-    font-family: 'Duera Bold';
-    font-size: 44px;
+    bottom: 5%;
+    left: 5%;
+    font-family: 'Duera';
+    font-size: 16px;
     line-height: 100%;
     letter-spacing: 0.02em;
-    text-transform: uppercase;
 }
 
 /* RIGHT SIDE  */
