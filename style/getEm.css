@@ -157,7 +157,7 @@
     bottom: 5%;
     left: 5%;
     font-family: 'Duera';
-    font-size: 4px;
+    font-size: 10px;
 }
 
 .left-elements {
@@ -515,14 +515,14 @@
     bottom: 0;
     left: 0;
     position: absolute;
-    border-radius: 0.7rem;
+    border-radius: 2rem;
     border: 0.35rem solid #000000;
     background-color: #000000;
     clip-path: polygon(100% 0%, 50% 70%, 0% 0%, 0% 100%, 100% 100%);
     z-index: 300;
 }
 .envelop__back-paper {
-    width: 100%;
+    width: 102%;
     height: 100%;
     bottom: 0;
     left: 0;
@@ -540,7 +540,7 @@
     position: relative;
     border-radius: 0.7rem;
     background-color: #881010;
-    z-index: 400;
+    z-index: 350;
     clip-path: polygon(0% 0%, 100% 0%, 50% 81%);
 }
 .envelop__sticker {
@@ -553,9 +553,9 @@
     bottom: 0;
     right: 0;
     z-index: 400;
-    background-image: url(./img/heart.png);
+    background-image: url(./img/pixel-heart.png);
     background-color: #000000;
-    border: 0.3rem solid #000000;
+    border: 0.4rem solid #e0e0e0;
     background-size: 2rem;
     background-position: center;
 }
@@ -579,9 +579,9 @@
     bottom: 0;
     right: 0;
     z-index: 300;
-    background-image: url(./img/heart.png);
+    background-image: url(./img/pixel-heart.png);
     background-color: #000000;
-    border: 0.3rem solid #000000;
+    border: 0.4rem solid #e0e0e0;
     background-size: 2rem;
     background-position: center;
 }
@@ -633,31 +633,31 @@
     height: 45%;
 }
 .note__text {
-    font-family: 'Allura';
+    font-family: 'Garamond';
     padding: 1rem;
 }
 .note__text p {
-    font-family: 'Allura';
-    font-size: 0.9rem;
-    color: #333333;
+    font-family: 'Garamond';
+    font-size: 16px;
+    color: #4f4f4f;
     margin-bottom: 1rem;
     text-align: center;
-    line-height: 1em;
+    line-height: 1.5em;
 }
 @media (min-width: 300px) and (max-width: 600px) {
     .note__text p {
-        font-family: 'Allura';
+        font-family: 'Garamond';
         font-size: 1.025rem;
-        color: #333333;
-        line-height: 1em;
+        color: #4f4f4f;
+        line-height: 1.3em;
    }
 }
 @media (min-width: 600px) {
     .note__text p {
         font-family: 'Allura';
         font-size: 1.15rem;
-        color: #333333;
-        line-height: 1em;
+        color: #4f4f4f;
+        line-height: 1.3em;
    }
 }
 .scissors {
