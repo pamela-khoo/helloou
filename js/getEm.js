@@ -7,15 +7,6 @@ dropSound.volume = 0.4;
 const backgroundMusic = document.querySelector('#background-music');
 backgroundMusic.volume = 0.1;
 
-//dealing with queryParams
-let params = getUrlParams();
-
-//dealing with return buttin queryParams
-const returnHomeBtn = document.querySelector('.left-elements a');
-delete params.game2;
-const setUrl = setUrlParams(`${returnHomeBtn.href}`, params);
-returnHomeBtn.href = setUrl;
-
 const hasWin = () => {
     //winSound.volume = 0.2;
     //winSound.play();
@@ -35,15 +26,6 @@ const hasLost = (loseContainerSelector = '.lose-5') => {
         loseNode.classList.toggle('hide');
         loseNode.style.animation = 'appear 0.3s';
     });
-
-    // dealing with losing query params
-    let loseHomeBtn = document.querySelector('#lose-home');
-    for(let param in params) {
-        if(param === 'game2');
-        delete params.game2;
-    }
-    let newURL = setUrlParams(`${loseHomeBtn.href}`, params);
-    loseHomeBtn.href = newURL;
 }
 
 
