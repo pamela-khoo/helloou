@@ -556,7 +556,7 @@
     background-image: url(./img/pixel-heart.png);
     background-color: #000000;
     border: 0.4rem solid #e0e0e0;
-    background-size: 2rem;
+    background-size: 2.5rem;
     background-position: center;
 }
 @media (max-width: 400px) {
@@ -578,11 +578,11 @@
     left: 80%;
     bottom: 0;
     right: 0;
-    z-index: 300;
+    z-index: 400;
     background-image: url(./img/pixel-heart.png);
     background-color: #000000;
     border: 0.4rem solid #e0e0e0;
-    background-size: 2rem;
+    background-size: 2.5rem;
     background-position: center;
 }
 @media (max-width: 400px) {
@@ -649,15 +649,15 @@
         font-family: 'Garamond';
         font-size: 1.025rem;
         color: #4f4f4f;
-        line-height: 1.3em;
+        line-height: 1.5em;
    }
 }
 @media (min-width: 600px) {
     .note__text p {
-        font-family: 'Allura';
+        font-family: 'Garamond';
         font-size: 1.15rem;
         color: #4f4f4f;
-        line-height: 1.3em;
+        line-height: 1.5em;
    }
 }
 .scissors {
