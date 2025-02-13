@@ -57,12 +57,8 @@
     background-size: cover;
 }
 
+/*i give up this is a cat*/
 .cat {
-    background-image: url(./img//Cat_Catch.svg);
-    background-size: cover;
-} 
-
-.skull {
     background-image: url(./img//skull.svg);
     background-size: cover;
 } 
