@@ -151,13 +151,6 @@
 
 /* LEFT SIDE  */
 
-.bottom-elements {
-    min-width: 210px;
-    bottom: 5%;
-    left: 5%;
-    position: absolute;
-}
-
 .left-elements {
     min-width: 210px;
     position: relative;
