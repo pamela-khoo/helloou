@@ -8,11 +8,6 @@
     src: url('./fonts/Duera-ExpaMedi-PERSONAL.ttf')
 }
 
-@font-face {
-    font-family: "Allura";
-    src: url('./fonts/Allura-Regular.ttf')
-}
-
 *{
     margin: 0;
     padding: 0;

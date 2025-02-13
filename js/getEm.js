@@ -118,7 +118,7 @@ const changeFishCounter = () => {
 
     if(fishCount === 15) {
         stopGame();
-        intervalMove = setInterval(moveElems, 100);
+        intervalMove = setInterval(moveElems, 50);
     }        
 }
 
