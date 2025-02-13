@@ -62,6 +62,16 @@
     background-size: cover;
 } 
 
+.skull {
+    background-image: url(./img//skullman.png);
+    background-size: cover;
+} 
+
+.skullfire {
+    background-image: url(./img//skullman_fire.png);
+    background-size: cover;
+} 
+
 .fish {
     background-image: url(./img/Fish_alive.svg);
     background-size: cover;

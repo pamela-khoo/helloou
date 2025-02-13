@@ -59,7 +59,7 @@ const renderGameArr = () => {
 }
 
 //cat object
-let cat = {y : 8, x : 5, class : 'cat'};
+let cat = {y : 8, x : 5, class : 'skull'};
 
 //can you move cat at this pos
 const canMoveCat = (tempCatPos) => {
@@ -190,14 +190,6 @@ const checkGameOver = () => {
     }
 }
 
-/*
-//create fish or raindrop - more raindrop than fish
-const createElems = () => {
-    Math.round(Math.random() * 20) > 7 ? randomElem('raindrop') : randomElem('fish');
-    renderGameArr();
-}
-*/
-
 // Create raindrop or other elements - raindrop is more frequent
 const createElems = () => {
     // Generate a random number between 0 and 20
@@ -255,6 +247,13 @@ const createElems = () => {
                 randomElem('duck'); 
                 break;
         }
+    }
+
+    // Check if randomNumber is 8 and replace the cat object
+    if (randomNumber === 8) {
+        clearElem(cat); // Clear the current cat position
+        cat = { y: 8, x: Math.floor(Math.random() * gridSize), class: 'skullfire' }; // Replace with a new cat object
+        putElem(cat); // Put the new cat in the gameArr
     }
 
     // Update the game state after adding the element
