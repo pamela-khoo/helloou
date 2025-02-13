@@ -63,12 +63,12 @@
 } 
 
 .skull {
-    background-image: url(./img//skullman.png);
+    background-image: url(./img//skull.svg);
     background-size: cover;
 } 
 
 .skullfire {
-    background-image: url(./img//skullman_fire.png);
+    background-image: url(./img//skullfire.svg);
     background-size: cover;
 } 
 
